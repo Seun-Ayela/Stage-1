@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 // const port = 8030;
-const port = process.env.PORT || 8020;
+const port = process.env.PORT || 8000;
 const datetime = require('date-and-time');
 
 app.use(express.json());
 
-app.get('/get_stage1', (req, res) => {
+app.get('/', (req, res) => {
     const { slack_name, track } = req.query;
     const current_day = datetime.format(new Date(), 'dddd');
     const utc_time = datetime.format(new Date(), 'YYYY-MM-DDTHH:mm:ss[Z]');
