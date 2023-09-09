@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 8030;
+// const port = 8030;
+const port = process.env.PORT || 8020;
 const datetime = require('date-and-time');
 
 app.use(express.json());
