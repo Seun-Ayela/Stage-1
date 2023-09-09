@@ -7,13 +7,23 @@ const datetime = require('date-and-time');
 app.use(express.json());
 
 app.get('/api', (req, res) => {
-    const { slack_name, track } = req.query;
-    const current_day = datetime.format(new Date(), 'dddd');
-    const utc_time = datetime.format(new Date(), 'YYYY-MM-DDTHH:mm:ss[Z]');
+    // const { slack_name, track } = req.query;
+    // // const current_day = datetime.format(new Date(), 'dddd');
+    // const current_day = new Date();
+    // const utc_time = now.toISOString().slice(0, 19) + 'Z';
 
-    const current_utc_time = datetime.parse(utc_time, 'YYYY-MM-DDTHH:mm:ss[Z]');
+    const { slack_name, track } = req.query;
+    const current_day = new Date().toISOString().slice(0, 19) + 'Z';
+
+
+    // const current_utc_time = datetime.parse(utc_time, 'YYYY-MM-DDTHH:mm:ss[Z]');
+    // const two_hours_ago = datetime.addHours(new Date(), -2);
+    // const two_hours_later = datetime.addHours(new Date(), 2);
+
+    const current_utc_time = new Date();
     const two_hours_ago = datetime.addHours(new Date(), -2);
     const two_hours_later = datetime.addHours(new Date(), 2);
+
 
     const status_code = (current_utc_time >= two_hours_ago && current_utc_time <= two_hours_later) ? 200 : 400;
 
