@@ -6,7 +6,7 @@ const datetime = require('date-and-time');
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     const { slack_name, track } = req.query;
     const current_day = datetime.format(new Date(), 'dddd');
     const utc_time = datetime.format(new Date(), 'YYYY-MM-DDTHH:mm:ss[Z]');
